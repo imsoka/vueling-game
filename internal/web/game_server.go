@@ -18,6 +18,7 @@ func NewGameServer() *GameServer {
 
 	gs.ServeMux.Handle("/", http.FileServer(http.Dir("./frontend")))
 	gs.ServeMux.HandleFunc("/join", gs.JoinHandler)
+	gs.ServeMux.HandleFunc("/click", gs.ClickHandler)
 
 	return gs
 }
@@ -27,18 +28,22 @@ func (gs *GameServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (gs *GameServer) JoinHandler(w http.ResponseWriter, r *http.Request) {
-	log.Printf("metodo: %s", r.Method)
 	conn, err := websocket.Accept(w, r, nil)
 	if err != nil {
 		log.Printf("%v", err)
 	}
-	log.Printf("conectado desde: %s", r.RemoteAddr)
 
 	seat := r.URL.Query().Get("seat")
-
-	p := models.NewUser(conn, seat)
-	log.Printf("%v", p.Connection)
-	gs.Players = append(gs.Players, p)
+	exist := false
+	for _, v := range gs.Players {
+		if v.SeatNumber == seat {
+			exist = true
+		}
+	}
+	if !exist {
+		p := models.NewUser(conn, seat)
+		gs.Players = append(gs.Players, p)
+	}
 }
 
 func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
@@ -46,4 +51,5 @@ func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 		return
 	}
+	log.Printf("Click!")
 }
