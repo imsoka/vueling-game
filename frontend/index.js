@@ -69,7 +69,7 @@ var contadorElemento = document.getElementById("contador2");
 var botonn = document.getElementById("mi-boton");
 
 // Definir el contador inicial
-var contador2 = 10;
+var contador2 = 2;
 
 // Función que se llama cuando se hace clic en el botón
 function comenzarContador() {
@@ -85,14 +85,28 @@ function comenzarContador() {
     
     // Actualizar el elemento del contador
     contadorElemento.innerHTML = contador2;
+
+
+
+    var miElementox = document.getElementById("contador");
+    var mostrarsegunda = miElementox.innerHTML;
+    var titulo = document.getElementById("titulo");
+    titulo.innerHTML = mostrarsegunda;
+
+
     
     // Si el contador llega a cero, mostrar el pop-up y detener el intervalo
     if (contador2 == 0) {
-      alert("Se acabó el tiempo");
+      //alert("Se acabó el tiempo");
       clearInterval(intervalo);
+      function mostrarDiv() {
+        var div = document.getElementById("miDiv");
+        div.style.display = "block";
+      }
+      mostrarDiv();
       
       // Hacer F5 después de cerrar el pop-up
-      location.reload();
+      //location.reload();
     }
   }, 1000); // 1000 milisegundos = 1 segundo
   } 
