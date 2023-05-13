@@ -34,16 +34,21 @@ func (gs *GameServer) JoinHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	seat := r.URL.Query().Get("seat")
-	exist := false
-	for _, v := range gs.Players {
-		if v.SeatNumber == seat {
-			exist = true
-		}
-	}
+	exist := gs.playerExists(seat)
 	if !exist {
+		log.Printf("%v", seat)
 		p := models.NewUser(conn, seat)
 		gs.Players = append(gs.Players, p)
 	}
+}
+
+func (gs *GameServer) playerExists(seat string) bool {
+	for _, v := range gs.Players {
+		if v.SeatNumber == seat {
+			return true
+		}
+	}
+	return false
 }
 
 func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
@@ -51,5 +56,4 @@ func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 		return
 	}
-	log.Printf("Click!")
 }

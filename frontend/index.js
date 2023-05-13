@@ -27,3 +27,27 @@ function dial() {
 }
 
 dial()
+
+let expectingMessage = false
+const submit = document.getElementById("mi-boton")
+
+submit.addEventListener("click", async ev => {
+    ev.preventDefault()
+
+    const msg = {
+        msg: 1,
+        seat: 32
+    }
+    expectingMessage = true
+    try {
+        const resp = await fetch("/click", {
+            method: "POST",
+            body: JSON.stringify(msg),
+        })
+        if(resp.status !== 202) {
+            throw new Error(`Unexpected HTTP Status ${resp.status} ${resp.statusText}`)
+        }
+    } catch (err) {
+
+    }
+})
