@@ -7,43 +7,39 @@
 <title>VUELING-GAME</title>
 <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
 </head>
-<body> 
-  <h2>TU USUARIO ES: B1-B2</h2>
- <!--DIV PADRE-->
-  <div class="divpadreboton">
-    <!--DIV HIJO1-->
-    <div class="divboton";>
-      <button id="mi-boton" class="boton">¡HAZ CLIC!</button>
+<body>
+
+  <div id="primer-div">
+    <div class="caja">
+      <h1>Hola</h1>
     </div>
-    <!--DIV HIJO2-->
-    <div class="divboton2";>
-      <!--DIV PARA LAS 3 PUNTUACIONES-->
-      <div class="divpuntuacionpadre">
-        <!--DIV PARA LA PUNTUACION DEL DE ARRIBA-->
-        <div class="divpuntuacion1">
-          <p>EL RIVAL TE SUPERA POR X</p>
-        </div>
-         <!--DIV PARA TU PUNTUACION-->
-        <div class="divpuntuacion2">
-          <p>HAS CLICADO <span id="contador">0</span> VECES.</p>
-        </div>
-        <!--DIV PARA LA PUNTUACION DEL DE ABAJO-->
-        <div class="divpuntuacion3">
-          <p>SUPERAS AL RIVAL X</p>
-      </div>
+    <div class="caja">
+      <h1>Hola</h1>
     </div>
+    <div class="caja">
+      <h1>Hola</h1>
     </div>
-    <script>
-      let contador = 0;
-      const boton = document.getElementById("mi-boton");
-      const contadorSpan = document.getElementById("contador");
-      
-      boton.addEventListener("click", () => {
-        contador++;
-        contadorSpan.textContent = contador;
-      });
-    </script>
   </div>
-  <h5>Tu usuaio hace refencia a los asientos asignados*</h5>
+  <div id="segundo-div">
+    <div class="caja">
+      <h1>Hola</h1>
+    </div>
+    <div class="caja">
+      <h1><p>HAS CLICADO <span id="contador">0</span> VECES.</p></h1>
+    </div>
+  </div>
+  <div id="tercer-div">
+    <button id="mi-boton" class="boton">¡HAZ CLIC!</button>
+  </div>
+  <script>
+    let contador = 0;
+    const boton = document.getElementById("mi-boton");
+    const contadorSpan = document.getElementById("contador");
+    
+    boton.addEventListener("click", () => {
+      contador++;
+      contadorSpan.textContent = contador;
+    });
+  </script>
 </body>
 </html>
