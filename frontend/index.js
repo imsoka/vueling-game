@@ -4,7 +4,7 @@ function setIdValue() {
 }
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max);
 }
 
 let id = getRandomInt(100);
@@ -40,8 +40,6 @@ function dial() {
 }
 
 
-
-
 dial()
 
 let expectingMessage = false
@@ -57,7 +55,7 @@ submit.addEventListener("click", async ev => {
             body: JSON.stringify(
                 {
                     msg: "click",
-                    seat: id
+                    seat: `${id}`
                 }),
         })
         if(resp.status !== 202) {
@@ -75,8 +73,8 @@ const boton = document.getElementById("mi-boton");
 const contadorSpan = document.getElementById("contador");
 
 boton.addEventListener("click", () => {
-  contador++;
-  contadorSpan.textContent = contador;
+    contador++;
+    contadorSpan.textContent = contador;
 });
 
 
@@ -89,43 +87,44 @@ var contador2 = 10;
 
 // Función que se llama cuando se hace clic en el botón
 function comenzarContador() {
-  // Deshabilitar el botón para evitar clics repetidos
-  boton.disabled = false;
-  if(!contando) {
-    contando = true
+    // Deshabilitar el botón para evitar clics repetidos
+    boton.disabled = false;
+    if(!contando) {
+        contando = true
 
-      // Crear un intervalo que disminuya el contador cada segundo
-  var intervalo = setInterval(function() {
-    // Disminuir el contador2
-    contador2--;
-    
-    // Actualizar el elemento del contador
-    contadorElemento.innerHTML = contador2;
+        // Crear un intervalo que disminuya el contador cada segundo
+        var intervalo = setInterval(function() {
+            // Disminuir el contador2
+            contador2--;
 
-
-
-    var miElementox = document.getElementById("contador");
-    var mostrarsegunda = miElementox.innerHTML;
-    var titulo = document.getElementById("titulo");
-    titulo.innerHTML = mostrarsegunda;
+            // Actualizar el elemento del contador
+            contadorElemento.innerHTML = contador2;
 
 
-    
-    // Si el contador llega a cero, mostrar el pop-up y detener el intervalo
-    if (contador2 == 0) {
-      //alert("Se acabó el tiempo");
-      clearInterval(intervalo);
-      function mostrarDiv() {
-        var div = document.getElementById("miDiv");
-        div.style.display = "block";
-      }
-      mostrarDiv();
-      
-      // Hacer F5 después de cerrar el pop-up
-      //location.reload();
-    }
-  }, 1000); // 1000 milisegundos = 1 segundo
-  } 
+
+            var miElementox = document.getElementById("contador");
+            var mostrarsegunda = miElementox.innerHTML;
+            var titulo = document.getElementById("titulo");
+            titulo.innerHTML = mostrarsegunda;
+
+
+
+            // Si el contador llega a cero, mostrar el pop-up y detener el intervalo
+            if (contador2 == 0) {
+                botonn.disabled = true;
+                //alert("Se acabó el tiempo");
+                clearInterval(intervalo);
+                function mostrarDiv() {
+                    var div = document.getElementById("miDiv");
+                    div.style.display = "block";
+                }
+                mostrarDiv();
+
+                // Hacer F5 después de cerrar el pop-up
+                //location.reload();
+            }
+        }, 1000); // 1000 milisegundos = 1 segundo
+    } 
 }
 
 // Agregar el evento click al botón

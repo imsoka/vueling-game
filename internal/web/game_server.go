@@ -35,11 +35,12 @@ func (gs *GameServer) JoinHandler(w http.ResponseWriter, r *http.Request) {
     }
 
     seat := r.URL.Query().Get("seat")
-    exist := gs.playerExists(seat)
-    if !exist {
+    
+    if exist := gs.playerExists(seat); !exist {
         p := models.NewUser(conn, seat)
         gs.Players = append(gs.Players, p)
         log.Println("Player", seat, "joined the game")
+
     }
 }
 
@@ -52,15 +53,27 @@ func (gs *GameServer) playerExists(seat string) bool {
     return false
 }
 
+func (gs *GameServer) getPlayer(seat string) *models.User {
+    for _, v := range gs.Players {
+        if v.SeatNumber == seat {
+            return v
+        }
+    }
+
+    return nil
+}
+
 func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
     if r.Method != http.MethodPost {
         http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
         return
     }
 
+    defer r.Body.Close()
+
     var requestData struct {
         Msg string `json:"msg"`
-        Seat int `json:"seat"`
+        Seat string `json:"seat"`
     }
 
     log.Println(r.Body)
@@ -70,8 +83,19 @@ func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
     log.Printf("Datos recibidos: %+v", requestData)
-    // Aquí puedes procesar los datos recibidos
+    
+    log.Println(requestData.Seat, "clicked")
 
-    defer r.Body.Close()
+    player := gs.getPlayer(requestData.Seat)
+    if player == nil {
+        // player := models.NewUser(conn, seat)
+        // gs.Players = append(gs.Players, p)
+        // log.Println("Player", seat, "joined the game")
+        log.Println("Player", requestData.Seat, "does not exists, how is it playing?")
+        return
+    }
+
+    player.AddClick()
+    log.Println("Player", player.SeatNumber, "has", player.Score, "clicks")
 }
 

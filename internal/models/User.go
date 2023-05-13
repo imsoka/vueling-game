@@ -19,3 +19,7 @@ func NewUser(connection *websocket.Conn, seatNumber string) *User {
 		Score:      0,
 	}
 }
+
+func (u *User) AddClick() {
+    u.Score++
+}
