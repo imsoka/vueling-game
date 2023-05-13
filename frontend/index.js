@@ -1,5 +1,18 @@
+function setIdValue() {
+    let id_header = document.getElementById("idjugador");
+    id_header.innerHTML = id;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+let id = getRandomInt(100);
+setIdValue();
+
+
 function dial() {
-    const conn = new WebSocket(`ws://${location.host}/join?seat=32`)
+    const conn = new WebSocket(`ws://${location.host}/join?seat=${id}`)
 
     conn.addEventListener("close", ev => {
         console.log(`WebSocket Disconnected code: ${ev.code}, reason: ${ev.reason}`, true)
@@ -26,6 +39,9 @@ function dial() {
     })
 }
 
+
+
+
 dial()
 
 let expectingMessage = false
@@ -41,7 +57,7 @@ submit.addEventListener("click", async ev => {
             body: JSON.stringify(
                 {
                     msg: "click",
-                    seat: 32
+                    seat: id
                 }),
         })
         if(resp.status !== 202) {
@@ -114,4 +130,3 @@ function comenzarContador() {
 
 // Agregar el evento click al botón
 boton.addEventListener("click", comenzarContador);
-

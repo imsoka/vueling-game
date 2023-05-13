@@ -39,6 +39,7 @@ func (gs *GameServer) JoinHandler(w http.ResponseWriter, r *http.Request) {
     if !exist {
         p := models.NewUser(conn, seat)
         gs.Players = append(gs.Players, p)
+        log.Println("Player", seat, "joined the game")
     }
 }
 
