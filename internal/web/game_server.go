@@ -36,7 +36,6 @@ func (gs *GameServer) JoinHandler(w http.ResponseWriter, r *http.Request) {
 	seat := r.URL.Query().Get("seat")
 	exist := gs.playerExists(seat)
 	if !exist {
-		log.Printf("%v", seat)
 		p := models.NewUser(conn, seat)
 		gs.Players = append(gs.Players, p)
 	}
@@ -55,5 +54,12 @@ func (gs *GameServer) ClickHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 		return
+	}
+	if err := r.ParseForm(); err != nil {
+		log.Printf("%v", err)
+		return
+	}
+	for _, values := range r.PostForm {
+		log.Printf("%v", values)
 	}
 }

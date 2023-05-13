@@ -35,14 +35,18 @@ submit.addEventListener("click", async ev => {
     ev.preventDefault()
 
     const msg = {
-        msg: 1,
+        msg: "click",
         seat: 32
     }
+    const formData = new FormData();
+    formData.append("msg", "click")
+    formData.append("seat", 32)
+
     expectingMessage = true
     try {
         const resp = await fetch("/click", {
             method: "POST",
-            body: JSON.stringify(msg),
+            body: formData,
         })
         if(resp.status !== 202) {
             throw new Error(`Unexpected HTTP Status ${resp.status} ${resp.statusText}`)
