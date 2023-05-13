@@ -40,7 +40,6 @@ body {
   }
   #tercer-div {
     height: 34.5vh;
-    background-color: lightgray;
     display: flex;
     align-self: flex-end;
     align-items: center;
@@ -52,15 +51,17 @@ body {
     font-size: 100px;
     margin-bottom: 20px;
   }
-  #tercer-div button {
+
+  #tercer-div #formus { 
     width: 100%;
     height: 100%;
+  }
+
+  #tercer-div #mi-boton {
+    width: 100%;
+    height: 100%; 
     background-image: url('boton.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    height: 100%;  
   }
+
