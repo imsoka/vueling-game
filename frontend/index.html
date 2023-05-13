@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <h1 id="contador2">10</h1>
   <div id="primer-div">
     <div class="caja">
       <h1>Hola</h1>
@@ -33,15 +34,6 @@
       <button type="submit" id="mi-boton" class="boton"></button>
     </form>
   </div>
-  <script>
-    let contador = 0;
-    const boton = document.getElementById("mi-boton");
-    const contadorSpan = document.getElementById("contador");
-    
-    boton.addEventListener("click", () => {
-      contador++;
-      contadorSpan.textContent = contador;
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
