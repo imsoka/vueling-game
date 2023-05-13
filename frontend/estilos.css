@@ -1,5 +1,5 @@
 body {
-    padding-top: 40px;
+    padding-top: 10px;
     background-color: lightgray;
     height: 100%;
   }
@@ -18,16 +18,18 @@ span{
     padding-top: 19%;
     /*border: 3px solid red;*/
 }
-.divpuntuacion1{
+
+/*.divpuntuacion1{
     /*border: 3px solid red;*/
-}
+/*}
+
 .divpuntuacion2{
     /*border: 3px solid red;*/
-}
+/*}
 .divpuntuacion3{
     /*border: 3px solid red;*/
-}
-
+/*}
+*/
 .divboton{
     flex: 1;
     text-align: center;
