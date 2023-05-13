@@ -3,11 +3,12 @@ package main
 import (
 	"log"
 	"net/http"
+
+	"github.com/imsoka/vueling-game/api"
 )
 
 func main() {
-	setupAPI()
-
+	api.SetRoutes()
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
 

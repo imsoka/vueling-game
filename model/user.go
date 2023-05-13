@@ -1,16 +1,12 @@
 package model
 
-import (
-	"net/http"
-)
-
 type User struct {
+	ipAddress  string
+	score      uint
+	seat       string
+	connection Connection
 }
 
-func NewUser() *User {
+func NewUser(conn *Connection) *User {
 	return &User{}
-}
-
-func (u User) Connect(r http.Request, rw http.ResponseWriter) {
-
 }

@@ -1,3 +1,3 @@
-module hackupc2023/vueling-game
+module github.com/imsoka/vueling-game
 
 go 1.20
