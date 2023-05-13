@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 1.2%;
@@ -77,13 +77,6 @@ body {
     border: none;
   }
 
-  #contador2 {
-    text-align: center;
-    color: white;
-    margin-top: 20%;
-    font-size: 6em;
-  }
-
   #miDiv{
     color: white;
     font-size: 3em;
@@ -104,4 +97,28 @@ body {
 
   #toclose {
     font-size: 2em;
+  }
+
+
+  #contador2 {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+  }
+
+  #idjugador{
+    text-align: left;
+    color: white;
+    font-size: 2em;
+  }
+  .identificadoruser{
+    color: white;
+    font-size: 2em;
+    margin-left: 2%;
+  }
+  #tempo {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    margin-top: 10%;
   }
