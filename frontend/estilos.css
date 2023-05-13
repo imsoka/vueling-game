@@ -2,11 +2,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-image: url("bg.png");
     
   }
   #primer-div {
     height: 44.9%;
-    background-color: lightblue;
+    background-color: whitesmoke;
+    color: #0D2149;
+    border-radius: 8% / 40%;
     display: block;
     justify-content: center;
     align-items: center;
@@ -14,16 +17,17 @@ body {
     margin-top: 40%;
     margin-left: 10%;
     margin-right: 10%;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
   }
   #primer-div .caja {
     width: 14,9%;
     height: 14,9%;
-    border: 2px solid black;
     margin: 1.50%;
   }
   #segundo-div {
-    height: 44.9%;
-    background-color: lightgreen;
+    height: 60%;
+    color: white;
     display: block;
     justify-content: center;
     align-items: center;
@@ -31,13 +35,18 @@ body {
     margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
+    background-color: #0D2149;
+    border-radius: 5% / 40%;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+    
   }
   #segundo-div .caja {
     width: 14,9%;
     height: 14,9%;
-    border: 2px solid black;
-    margin: 1.50%;
+    margin: 1.50%;  
   }
+
   #tercer-div {
     height: 34.5vh;
     display: flex;
@@ -50,6 +59,7 @@ body {
   #tercer-div #contador {
     font-size: 100px;
     margin-bottom: 20px;
+    
   }
 
   #tercer-div #formus { 
@@ -63,5 +73,7 @@ body {
     background-image: url('boton.png');
     background-repeat: no-repeat;
     background-size: 100%;
+    border-radius: 15% / 18%;
+    border: none;
   }
 
