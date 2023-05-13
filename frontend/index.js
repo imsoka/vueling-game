@@ -1,3 +1,13 @@
+let id = document.cookie.replace(/(?:(?:^|.*;\s*)seat\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+
+if(!id) {
+    let randomInt = getRandomInt(180)
+    document.cookie = "seat=" + getRandomInt(180)
+    id = randomInt
+}
+
+setIdValue();
+
 function setIdValue() {
     let id_header = document.getElementById("idjugador");
     id_header.innerHTML = id;
@@ -7,12 +17,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-let id = getRandomInt(100);
-setIdValue();
-
-
 function dial() {
-    const conn = new WebSocket(`ws://${location.host}/join?seat=${id}`)
+    conn = new WebSocket(`ws://${location.host}/join?seat=${id}`)
 
     conn.addEventListener("close", ev => {
         console.log(`WebSocket Disconnected code: ${ev.code}, reason: ${ev.reason}`, true)
@@ -38,7 +44,6 @@ function dial() {
         }
     })
 }
-
 
 dial()
 
