@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>VUELING-GAME</title>
+<link rel="stylesheet" type="text/css" href="" media="screen" />
+</head>
+<body> 
+  <h2>TU USUARIO ES: B1-B2</h2>
+ <!--DIV PADRE-->
+  <div class="divpadreboton">
+    <!--DIV HIJO1-->
+    <div class="divboton";>
+      <button id="mi-boton" class="boton">¡HAZ CLIC!</button>
+    </div>
+    <!--DIV HIJO2-->
+    <div class="divboton2";>
+      <!--DIV PARA LAS 3 PUNTUACIONES-->
+      <div class="divpuntuacionpadre">
+        <!--DIV PARA LA PUNTUACION DEL DE ARRIBA-->
+        <div class="divpuntuacion1">
+          <p>EL RIVAL TE SUPERA POR X</p>
+        </div>
+         <!--DIV PARA TU PUNTUACION-->
+        <div class="divpuntuacion2">
+          <p>HAS CLICADO <span id="contador">0</span> VECES.</p>
+        </div>
+        <!--DIV PARA LA PUNTUACION DEL DE ABAJO-->
+        <div class="divpuntuacion3">
+          <p>SUPERAS AL RIVAL X</p>
+      </div>
+    </div>
+    </div>
+    <script>
+      let contador = 0;
+      const boton = document.getElementById("mi-boton");
+      const contadorSpan = document.getElementById("contador");
+      
+      boton.addEventListener("click", () => {
+        contador++;
+        contadorSpan.textContent = contador;
+      });
+    </script>
+  </div>
+  <h5>Tu usuaio hace refencia a los asientos asignados*</h5>
+</body>
+</html>
+
+body {
+    padding-top: 10px;
+    background-image: url('herobanner-1440x345.jpg');
+    height: 100%;
+  }
+p {
+    text-align: center;
+    font-size: 30px;
+}
+span{
+    font-size: 40px;
+}
+.divpadreboton{
+    display: flex;
+    height: 500px;
+}
+.divpuntuacionpadre{
+    padding-top: 19%;
+    /*border: 3px solid red;*/
+}
+
+/*.divpuntuacion1{
+    /*border: 3px solid red;*/
+/*}
+
+.divpuntuacion2{
+    /*border: 3px solid red;*/
+/*}
+.divpuntuacion3{
+    /*border: 3px solid red;*/
+/*}
+*/
+.divboton{
+    flex: 1;
+    text-align: center;
+    /*border: 3px solid gray;*/
+    flex-basis: 80%;
+    padding: 10px;
+
+}
+.divboton2{
+    /*border: 3px solid gray;*/
+    flex: 1;
+    flex-basis: 20%;
+    padding: 10px;
+    background-color: lightseagreen;
+    border: 3px solid white;
+    
+}
+
+.boton{
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    background-color: #fc0;
+    border: 3px solid white;
+
+}
