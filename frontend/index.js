@@ -73,7 +73,7 @@ var contadorElemento = document.getElementById("contador2");
 var botonn = document.getElementById("mi-boton");
 
 // Definir el contador inicial
-var contador2 = 2;
+var contador2 = 10;
 
 // Función que se llama cuando se hace clic en el botón
 function comenzarContador() {
