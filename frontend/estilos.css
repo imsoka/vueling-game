@@ -1,4 +1,5 @@
 body {
+    padding-top: 40px;
     background-color: lightgray;
     height: 100%;
   }
@@ -13,20 +14,32 @@ span{
     display: flex;
     height: 500px;
 }
-
+.divpuntuacionpadre{
+    padding-top: 19%;
+    /*border: 3px solid red;*/
+}
+.divpuntuacion1{
+    /*border: 3px solid red;*/
+}
+.divpuntuacion2{
+    /*border: 3px solid red;*/
+}
+.divpuntuacion3{
+    /*border: 3px solid red;*/
+}
 
 .divboton{
     flex: 1;
     text-align: center;
-    border: 2px solid gray;
-    flex-basis: 70%;
+    border: 3px solid gray;
+    flex-basis: 80%;
     padding: 10px;
 
 }
 .divboton2{
-    border: 2px solid gray;
+    border: 3px solid gray;
     flex: 1;
-    flex-basis: 30%;
+    flex-basis: 20%;
     padding: 10px;
     
     
