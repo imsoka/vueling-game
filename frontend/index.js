@@ -34,19 +34,15 @@ const submit = document.getElementById("mi-boton")
 submit.addEventListener("click", async ev => {
     ev.preventDefault()
 
-    const msg = {
-        msg: "click",
-        seat: 32
-    }
-    const formData = new FormData();
-    formData.append("msg", "click")
-    formData.append("seat", 32)
-
     expectingMessage = true
     try {
         const resp = await fetch("/click", {
             method: "POST",
-            body: formData,
+            body: JSON.stringify(
+                {
+                    msg: "click",
+                    seat: 32
+                }),
         })
         if(resp.status !== 202) {
             throw new Error(`Unexpected HTTP Status ${resp.status} ${resp.statusText}`)
