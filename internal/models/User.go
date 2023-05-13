@@ -23,3 +23,17 @@ func NewUser(connection *websocket.Conn, seatNumber string) *User {
 func (u *User) AddClick() {
     u.Score++
 }
+
+type ByScore []*User
+
+func (s ByScore) Len() int {
+    return len(s)
+}
+
+func (s ByScore) Swap(i, j int) {
+    s[i], s[j] = s[j], s[i]
+}
+
+func (s ByScore) Less(i, j int) bool {
+    return s[i].Score < s[j].Score
+}
