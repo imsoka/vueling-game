@@ -14,16 +14,17 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
-    padding-top: 1.2%;
+    padding-top: 1%;
     padding-bottom: 1.2%;
 }
 #primer-div .caja {
     width: 14,9%;
     height: 14,9%;
     margin: 1.50%;
+    font-size: 17px;
 }
 #segundo-div {
     height: 60%;
@@ -45,6 +46,7 @@ body {
     width: 14,9%;
     height: 14,9%;
     margin: 1.50%;  
+    font-size: 20px;
 }
 
 #tercer-div {
@@ -92,7 +94,7 @@ body {
     padding-left: 20%;
     padding-right: 20%;
     border-radius: 20% / 20%;
-    font-size: 1.2em;
+    font-size: 3em;
 }
 
 #toclose {
@@ -119,6 +121,10 @@ body {
 #tempo {
     text-align: center;
     color: white;
-    font-size: 4em;
+    font-size: 5em;
     margin-top: 10%;
+}
+.boton{
+  border-radius: 15% / 18%;
+    border: none;
 }
