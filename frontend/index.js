@@ -17,6 +17,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+let conn;
 function dial() {
     conn = new WebSocket(`ws://${location.host}/join?seat=${id}`)
 
@@ -32,7 +33,8 @@ function dial() {
     })
 
     // This is where we handle messages received.
-    conn.addEventListener("message", ev => {
+    conn.addEventListener("message", (ev) => {
+        console.log("esto viene de mensaaaaaaje", event.data)
         if (typeof ev.data !== "string") {
             console.error("unexpected message type", typeof ev.data)
             return
@@ -98,7 +100,27 @@ function comenzarContador() {
         contando = true
 
         // Crear un intervalo que disminuya el contador cada segundo
-        var intervalo = setInterval(function() {
+        var intervalo = setInterval(() => {
+
+            let update = async () => {
+                expectingMessage = true
+                const fn = await fetch("/update", {
+                    method: "POST",
+                    body: JSON.stringify(
+                        {
+                            msg: "update",
+                            seat: `${id}`
+                        }),
+                })
+                const resp = await fn.json()
+
+                let siguienteJugador = document.getElementById("siguiente")
+                siguienteJugador.innerHTML = `Siguiente jugador ${resp.Next.seat} tiene ${resp.Next.score} puntos`
+                let anteriorJugador = document.getElementById("anterior")
+                anteriorJugador.innerHTML = `Anterior jugador ${resp.Prev.seat} tiene ${resp.Prev.score} puntos`
+            }
+            update()
+
             // Disminuir el contador2
             contador2--;
 
